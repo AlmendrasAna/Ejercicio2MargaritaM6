@@ -62,8 +62,8 @@
 
     <EditText
         android:id="@+id/nombreEdit"
-        android:layout_width="213dp"
-        android:layout_height="64dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="16dp"
         android:background="#A6DDFF"
@@ -97,22 +97,12 @@
         android:layout_marginBottom="16dp"
         android:text="TOTAL ACTUAL"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtResultado"
+        app:layout_constraintBottom_toTopOf="@+id/resultadoTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btnGuardar"
-        android:layout_width="144dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="16dp"
-        android:text="Guardar"
-        app:layout_constraintEnd_toEndOf="@+id/txtResultado"
-        app:layout_constraintStart_toStartOf="@+id/txtResultado"
-        app:layout_constraintTop_toBottomOf="@+id/txtResultado" />
-
     <TextView
-        android:id="@+id/txtResultado"
+        android:id="@+id/resultadoTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00000"
@@ -120,7 +110,35 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/agregarB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#304FFE"
+        android:text="Guardar"
+        app:layout_constraintEnd_toStartOf="@+id/listarItemB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultadoTxt" />
+
+    <Button
+        android:id="@+id/listarItemB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#304FFE"
+        android:text="Ir al listado de Item"
+        app:layout_constraintBottom_toBottomOf="@+id/agregarB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/resultadoTxt" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -135,6 +153,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="Lista de Gastos"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.48" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

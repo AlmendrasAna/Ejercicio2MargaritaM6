@@ -5,53 +5,47 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.ejercicio2margaritam6.ARG_PARAM1
-import com.example.ejercicio2margaritam6.ARG_PARAM2
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.ejercicio2margaritam6.R
+import com.example.ejercicio2margaritam6.databinding.FragmentIngresoConsumoBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [IngresoConsumoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class IngresoConsumoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+lateinit var binding : FragmentIngresoConsumoBinding
+private val itemVM : ViewModelItem by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ingreso_consumo, container, false)
+        binding = FragmentIngresoConsumoBinding .inflate(layoutInflater, container, false)
+        initListener()
+
+        return binding.root
+    }
+    private fun initListener() {
+
+
+        binding.agregarB.setOnClickListener {
+            val nombre = binding.nombreEdit.text.toString()
+            val precio = binding.precioEdit.text.toString().toInt()
+            val cantidad = binding.cantidadEdit.text.toString().toInt()
+
+            saveTarea(nombre,precio,cantidad)
+
+            val r = precio * cantidad
+            binding.resultadoTxt.text=r.toString()
+        }
+        binding.listarItemB.setOnClickListener {
+            findNavController().navigate(R.id.action_ingresoConsumoFragment_to_recyclerFragment)
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment IngresoConsumoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            IngresoConsumoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun saveTarea(nombre: String,precio : Int, cantidad: Int) {
+
+        itemVM.insertItem(nombre,precio,cantidad)
+
     }
+
+
 }

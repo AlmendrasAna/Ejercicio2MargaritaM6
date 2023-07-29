@@ -9,5 +9,18 @@
         android:id="@+id/ingresoConsumoFragment"
         android:name="com.example.ejercicio2margaritam6.Presentation.IngresoConsumoFragment"
         android:label="fragment_ingreso_consumo"
-        tools:layout="@layout/fragment_ingreso_consumo" />
+        tools:layout="@layout/fragment_ingreso_consumo" >
+        <action
+            android:id="@+id/action_ingresoConsumoFragment_to_recyclerFragment"
+            app:destination="@id/recyclerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recyclerFragment"
+        android:name="com.example.ejercicio2margaritam6.Presentation.RecyclerFragment"
+        android:label="fragment_recycler"
+        tools:layout="@layout/fragment_recycler" >
+        <action
+            android:id="@+id/action_recyclerFragment_to_ingresoConsumoFragment"
+            app:destination="@id/ingresoConsumoFragment" />
+    </fragment>
 </navigation>
