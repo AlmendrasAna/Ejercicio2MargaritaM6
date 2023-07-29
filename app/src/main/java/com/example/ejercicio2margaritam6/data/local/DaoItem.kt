@@ -10,7 +10,7 @@ interface DaoItem {
     @Insert
 suspend fun insertarItem(itemClass: ItemClass)
 @Query("SELECT * FROM item_table order by id ASC")
-fun ShowItem(): LiveData<List<ItemClass>>
+fun showItem(): LiveData<List<ItemClass>>
 }
 
 
