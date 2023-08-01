@@ -50,11 +50,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:background="#A6DDFF"
         android:ems="10"
         android:hint="Cantidad"
         android:inputType="number"
         android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/precioEdit"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -64,7 +66,7 @@
         android:id="@+id/nombreEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:background="#A6DDFF"
         android:ems="10"
@@ -72,7 +74,8 @@
         android:inputType="text"
         android:padding="20dp"
         app:layout_constraintBottom_toTopOf="@+id/precioEdit"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
         android:id="@+id/precioEdit"
@@ -87,19 +90,19 @@
         app:layout_constraintEnd_toEndOf="@+id/nombreEdit"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.43" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:text="TOTAL ACTUAL"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/resultadoTxt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/resultadoTxt"
@@ -121,6 +124,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="#304FFE"
         android:text="Guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/listarItemB"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultadoTxt" />
@@ -134,7 +138,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="#304FFE"
         android:text="Ir al listado de Item"
-        app:layout_constraintBottom_toBottomOf="@+id/agregarB"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/resultadoTxt" />
@@ -144,7 +148,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
