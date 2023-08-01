@@ -34,7 +34,7 @@ class RecyclerFragment : Fragment() {
         itemVM.getAllItems().observe(viewLifecycleOwner) {
             adapter.setData(it)
             binding.recyclerView.adapter = adapter
-            binding.totalAPagarTxt.text = adapter.sumarT0tao().toString()
+            binding.totalAPagarTxt.text = "$ " + adapter.sumarT0tao().toString()
 
         }
     }
