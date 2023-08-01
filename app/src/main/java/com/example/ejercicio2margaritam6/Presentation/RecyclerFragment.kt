@@ -16,22 +16,26 @@ class RecyclerFragment : Fragment() {
     private val itemVM: ViewModelItem by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
+
+        binding = FragmentRecyclerBinding.inflate(inflater, container, false)
+
         initAdapter()
-        binding = FragmentRecyclerBinding.inflate(layoutInflater, container, false)
+
         return binding.root
     }
 
     fun initAdapter() {
 
         val adapter = Adapter()
-        var listadoTareaC = itemVM.getAllItems().observe(viewLifecycleOwner) {
 
+        itemVM.getAllItems().observe(viewLifecycleOwner) {
             adapter.setData(it)
             binding.recyclerView.adapter = adapter
+            binding.totalAPagarTxt.text = adapter.sumarT0tao().toString()
+
         }
     }
 }

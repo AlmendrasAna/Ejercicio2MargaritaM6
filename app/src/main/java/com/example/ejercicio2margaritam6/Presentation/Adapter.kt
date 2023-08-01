@@ -11,7 +11,7 @@ import com.example.ejercicio2margaritam6.databinding.ItemBinding
 
 class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-  // private var items = List<ItemClass> = emptyList()
+
     private var items: List<ItemClass> = emptyList()
 
 
@@ -23,8 +23,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        val r = items.size
-        Log.e("lol", "binsd: $r")
+
         return items.size
     }
 
@@ -36,7 +35,15 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
     fun setData(itemClass: List<ItemClass>) {
         this.items = itemClass
     }
+    fun sumarT0tao ():Int
+    {
+        var resultado =0
 
+        for (i: ItemClass in  items) {
+            resultado += (i.cantidad * i.precio)
+        }
+        return resultado
+    }
     inner class ViewHolder(private val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(itemClass: ItemClass) {
