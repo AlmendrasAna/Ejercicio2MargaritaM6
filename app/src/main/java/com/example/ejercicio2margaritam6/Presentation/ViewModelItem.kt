@@ -18,7 +18,7 @@ class ViewModelItem (application: Application) : AndroidViewModel(application) {
         repository = Repository(dao)
     }
 
-    fun getAllItems(): LiveData<MutableList<ItemClass>> = repository.getItem()
+    fun getAllItems(): LiveData<List<ItemClass>> = repository.getItem()
 
     fun insertItem(nombre: String, precio: Int, cantidad: Int) = viewModelScope.launch {
         val item = ItemClass(nombre, precio, cantidad)

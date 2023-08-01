@@ -13,7 +13,7 @@ class Repository(private val daoItem: DaoItem) {
     }
 
     fun getItem():
-            LiveData<MutableList<ItemClass>> {
+            LiveData<List<ItemClass>> {
 return daoItem.showItem()
 
     }

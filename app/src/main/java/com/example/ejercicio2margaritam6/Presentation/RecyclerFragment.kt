@@ -29,8 +29,7 @@ class RecyclerFragment : Fragment() {
 
         val adapter = Adapter()
         var listadoTareaC = itemVM.getAllItems().observe(viewLifecycleOwner) {
-            val r = it.size
-            Log.e("lol", "bind: $r")
+
             adapter.setData(it)
             binding.recyclerView.adapter = adapter
         }

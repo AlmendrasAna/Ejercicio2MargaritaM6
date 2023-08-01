@@ -11,8 +11,8 @@ import com.example.ejercicio2margaritam6.databinding.ItemBinding
 
 class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-   private var items = mutableListOf<ItemClass>()
-
+  // private var items = List<ItemClass> = emptyList()
+    private var items: List<ItemClass> = emptyList()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,7 +33,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
         holder.bind(itemClass)
     }
 
-    fun setData(itemClass: MutableList<ItemClass>) {
+    fun setData(itemClass: List<ItemClass>) {
         this.items = itemClass
     }
 
